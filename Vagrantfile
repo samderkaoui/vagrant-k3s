@@ -27,14 +27,8 @@ Vagrant.configure(2) do |config|
       # Install and configure UFW
       sudo apt-get install ufw -y
       sudo systemctl start ufw && sudo systemctl enable ufw
-      sudo ufw allow 80/tcp
-      sudo ufw allow 443/tcp
-      sudo ufw allow 9090/tcp
-      sudo ufw allow 22/tcp
-      sudo ufw allow 6443/tcp
-      sudo ufw allow 10250/tcp
-      sudo ufw allow 8472/udp
-      sudo ufw allow 51820/udp
+      sudo ufw allow 22,80,443,6443,9090,10250/tcp
+      sudo ufw allow 8472,51820/udp
       sudo ufw allow 30000:32767/tcp
       sudo systemctl restart ufw
       # Install K3s
@@ -76,14 +70,8 @@ Vagrant.configure(2) do |config|
         # Install and configure UFW
         sudo apt-get install ufw -y
         sudo systemctl start ufw && sudo systemctl enable ufw
-        sudo ufw allow 80/tcp
-        sudo ufw allow 443/tcp
-        sudo ufw allow 9090/tcp
-        sudo ufw allow 22/tcp
-        sudo ufw allow 6443/tcp
-        sudo ufw allow 10250/tcp
-        sudo ufw allow 8472/udp
-        sudo ufw allow 51820/udp
+        sudo ufw allow 22,80,443,6443,9090,10250/tcp
+        sudo ufw allow 8472,51820/udp
         sudo ufw allow 30000:32767/tcp
         sudo systemctl restart ufw
         # Join K3s cluster
